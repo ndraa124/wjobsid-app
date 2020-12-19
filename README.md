@@ -1,5 +1,3 @@
-# wjobsid-app
-
 # WJobsID RESTfull API
 
 A simple REST API using node js with DBMS MySQL
