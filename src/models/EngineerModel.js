@@ -183,7 +183,6 @@ module.exports = {
             JOIN account ac
               ON ac.ac_id = en.ac_id
                  ${where}
-        GROUP BY ac.ac_id
         ORDER BY ${fill}
            LIMIT ${paginate.limit} 
           OFFSET ${paginate.offset}
