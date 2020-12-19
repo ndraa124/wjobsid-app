@@ -33,6 +33,7 @@ module.exports = {
           FROM engineer en
           JOIN account ac
             ON ac.ac_id = en.ac_id
+         WHERE en.en_job_title != ''
       ORDER BY ac.ac_id
          LIMIT ${paginate.limit}
         OFFSET ${paginate.offset}
@@ -76,18 +77,14 @@ module.exports = {
                en.en_job_title,
                en.en_job_type,
                en.en_domicile,
-               en.en_profile,
-               sk.sk_skill_name
+               en.en_profile
           FROM engineer en
           JOIN account ac 
             ON (ac.ac_id = en.ac_id)
-     LEFT JOIN skill sk 
-            ON (sk.en_id = en.en_id)
          WHERE ac.ac_name
           LIKE '%${paginate.search}%'
             OR sk.sk_skill_name
           LIKE '%${paginate.search}%'
-      GROUP BY ac.ac_id
       ORDER BY ac.ac_id
          LIMIT ${paginate.limit} 
         OFFSET ${paginate.offset}
@@ -183,6 +180,7 @@ module.exports = {
             JOIN account ac
               ON ac.ac_id = en.ac_id
                  ${where}
+             AND en.en_job_title != ''
         ORDER BY ${fill}
            LIMIT ${paginate.limit} 
           OFFSET ${paginate.offset}
