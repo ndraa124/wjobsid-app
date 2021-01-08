@@ -5,6 +5,7 @@ const {
   createHire,
   getAllHireByEngineer,
   getAllHireByProject,
+  getAllHireByCompany,
   updateHireStatus
 } = require('../src/controllers/HireController')
 
@@ -15,6 +16,7 @@ const {
 router.post('/', authorization, createHire)
 router.get('/engineer/:enId', authorization, getAllHireByEngineer)
 router.get('/project/:pjId', authorization, getAllHireByProject)
+router.get('/company/:cnId', authorization, getAllHireByCompany)
 router.put('/:hrId', authorization, updateHireStatus)
 
 module.exports = router

@@ -10,6 +10,15 @@ const {
 } = require('../models/AccountModel')
 
 const {
+  getEngineerById
+} = require('../models/EngineerModel')
+
+const {
+  getCompanyById
+} = require('../models/CompanyModel')
+
+const {
+  statusGet,
   statusRegistration,
   statusRegistrationFail,
   statusRegistrationUnique,
@@ -71,31 +80,74 @@ module.exports = {
       const findData = await getAccountByEmail(email)
 
       if (findData.length) {
-        const match = await bcrypt.compare(password, findData[0].ac_password)
+        let result
 
-        if (match) {
-          const payload = {
-            ac_id: findData[0].ac_id,
-            ac_name: findData[0].ac_name,
-            ac_level: findData[0].ac_level,
-            ac_email: findData[0].ac_email
-          }
-
-          JWT.sign({ payload }, 'WJOBSID1242212', { expiresIn: '1d' }, (err, token) => {
-            if (token) {
-              const result = {
-                ...payload,
-                token: token
-              }
-
-              statusLogin(res, result)
-            } else {
-              statusTokenError(res, err)
-            }
-          })
+        if (findData[0].ac_level === 0) {
+          result = await getEngineerById(findData[0].ac_id)
         } else {
-          statusLoginFail(res)
+          result = await getCompanyById(findData[0].ac_id)
         }
+
+        if (result.length) {
+          const match = await bcrypt.compare(password, findData[0].ac_password)
+
+          if (match) {
+            let payload
+
+            if (findData[0].ac_level === 0) {
+              payload = {
+                en_id: result[0].en_id,
+                ac_id: findData[0].ac_id,
+                ac_name: findData[0].ac_name,
+                ac_level: findData[0].ac_level,
+                ac_email: findData[0].ac_email
+              }
+            } else {
+              payload = {
+                cn_id: result[0].cn_id,
+                ac_id: findData[0].ac_id,
+                ac_name: findData[0].ac_name,
+                ac_level: findData[0].ac_level,
+                ac_email: findData[0].ac_email
+              }
+            }
+
+            JWT.sign({ payload }, 'WJOBSID1242212', { expiresIn: '7d' }, (err, token) => {
+              if (token) {
+                JWT.verify(token, 'WJOBSID1242212', (_err, data) => {
+                  const result = {
+                    ...payload,
+                    exp: data.exp,
+                    token: token
+                  }
+
+                  statusLogin(res, result)
+                })
+              } else {
+                statusTokenError(res, err)
+              }
+            })
+          } else {
+            statusLoginFail(res)
+          }
+        } else {
+          statusNotFoundAccount(res)
+        }
+      } else {
+        statusNotFoundAccount(res)
+      }
+    } catch (err) {
+      statusServerError(res)
+    }
+  },
+
+  detailAccount: async (req, res, _next) => {
+    try {
+      const { acId } = req.params
+      const result = await getAccountById(acId)
+
+      if (result.length) {
+        statusGet(res, result)
       } else {
         statusNotFoundAccount(res)
       }

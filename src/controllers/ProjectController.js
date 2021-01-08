@@ -70,6 +70,7 @@ module.exports = {
         statusCreateFail(res)
       }
     } catch (err) {
+      console.error(err)
       statusServerError(res)
     }
   },

@@ -26,11 +26,22 @@ module.exports = {
       const result = await getAllExpById(exId)
 
       if (result.length) {
+        /* const data = {
+          ex_id: result[0].ex_id,
+          en_id: result[0].en_id,
+          ex_position: result[0].ex_position,
+          ex_company: result[0].ex_company,
+          ex_start: dateFormat(result[0].ex_start, 'yyyy-mm-dd'),
+          ex_end: dateFormat(result[0].ex_end, 'yyyy-mm-dd'),
+          ex_description: result[0].ex_description
+        } */
+
         statusGet(res, result)
       } else {
         statusNotFound(res)
       }
     } catch (error) {
+      console.error(error)
       statusServerError(res)
     }
   },

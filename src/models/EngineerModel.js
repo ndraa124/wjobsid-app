@@ -83,8 +83,6 @@ module.exports = {
             ON (ac.ac_id = en.ac_id)
          WHERE ac.ac_name
           LIKE '%${paginate.search}%'
-            OR sk.sk_skill_name
-          LIKE '%${paginate.search}%'
       ORDER BY ac.ac_id
          LIMIT ${paginate.limit} 
         OFFSET ${paginate.offset}
@@ -119,7 +117,7 @@ module.exports = {
     })
   },
 
-  getEngineerById: (enId) => {
+  getEngineerById: (acId) => {
     return new Promise((resolve, reject) => {
       const query = `
         SELECT en.en_id,
@@ -128,17 +126,19 @@ module.exports = {
                en.en_job_title,
                en.en_job_type,
                en.en_profile,
-               en.en_domicile
+               en.en_domicile,
+               en.en_description
           FROM engineer en
           JOIN account ac
             ON ac.ac_id = en.ac_id
-         WHERE ?
+         WHERE ac.?
       `
 
-      dbConnect.query(query, { en_id: enId }, (error, results, _fields) => {
+      dbConnect.query(query, { ac_id: acId }, (error, results, _fields) => {
         if (!error) {
           resolve(results)
         } else {
+          console.error(error)
           reject(error)
         }
       })
@@ -175,12 +175,16 @@ module.exports = {
                  en.en_job_title,
                  en.en_job_type,
                  en.en_domicile,
-                 en.en_profile
+                 en.en_profile,
+                 sk.sk_skill_name
             FROM engineer en
             JOIN account ac
               ON ac.ac_id = en.ac_id
+            JOIN skill sk
+              ON sk.en_id = en.en_id
                  ${where}
              AND en.en_job_title != ''
+        GROUP BY en.en_id
         ORDER BY ${fill}
            LIMIT ${paginate.limit} 
           OFFSET ${paginate.offset}

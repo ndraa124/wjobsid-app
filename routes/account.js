@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const {
+  detailAccount,
   createAccount,
   updateAccount,
   loginAccount
@@ -12,7 +13,8 @@ const {
 } = require('../src/middleware/auth')
 
 router.post('/', hashPassword, createAccount)
-router.put('/:acId', hashPassword, updateAccount)
+router.put('/:acId', updateAccount)
 router.post('/login', loginAccount)
+router.get('/detail/:acId', detailAccount)
 
 module.exports = router

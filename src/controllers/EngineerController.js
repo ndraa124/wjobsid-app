@@ -53,15 +53,16 @@ module.exports = {
         statusNotFound(res)
       }
     } catch (error) {
+      console.log(error)
       statusServerError(res)
     }
   },
 
   getEngineerById: async (req, res, _next) => {
-    const { enId } = req.params
+    const { acId } = req.params
 
     try {
-      const result = await getEngineerById(enId)
+      const result = await getEngineerById(acId)
 
       if (result.length) {
         statusGet(res, result)
@@ -69,6 +70,7 @@ module.exports = {
         statusNotFound(res)
       }
     } catch (error) {
+      console.log(`${error}`)
       statusServerError(res)
     }
   },

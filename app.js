@@ -27,8 +27,8 @@ app.set('view engine', 'jade')
 
 // cors
 const corsOptions = {
-  origin: '*', // Semua Domain
-  method: ['*'], // Semua Method
+  origin: '*', // All Domains
+  method: ['*'], // All Methods
   allowedHeaders: ['Content-Type', 'Accept', 'Authorization', 'X-Requested-With']
 }
 app.use(cors(corsOptions))

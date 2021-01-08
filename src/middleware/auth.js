@@ -4,7 +4,8 @@ const JWT = require('jsonwebtoken')
 
 const {
   statusLoginRequired,
-  statusTokenError
+  statusTokenError,
+  statusTokenExpired
 } = require('../helpers/status')
 
 module.exports = {
@@ -26,8 +27,10 @@ module.exports = {
       token = token.split(' ')[1]
 
       JWT.verify(token, 'WJOBSID1242212', (err, _data) => {
-        if ((err && err.name === 'JsonWebTokenError') || (err && err.name === 'TokenExpiredError')) {
+        if (err && err.name === 'JsonWebTokenError') {
           statusTokenError(res, err)
+        } else if (err && err.name === 'TokenExpiredError') {
+          statusTokenExpired(res, err)
         } else {
           /* if (data.payload.ac_level === 0) {
             next()

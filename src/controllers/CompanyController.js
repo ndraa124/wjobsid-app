@@ -1,6 +1,7 @@
 const {
   getAllCompany,
   getCompanyById,
+  getCompanyByIdAc,
   updateCompany
 } = require('../models/CompanyModel')
 
@@ -47,7 +48,7 @@ module.exports = {
     const { cnId } = req.params
 
     try {
-      const findData = await getCompanyById(cnId)
+      const findData = await getCompanyByIdAc(cnId)
 
       if (findData.length) {
         req.body.image = req.file === undefined ? findData[0].cn_profile : req.file.filename

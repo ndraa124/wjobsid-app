@@ -30,6 +30,13 @@ module.exports = {
     })
   },
 
+  statusTokenExpired: (res, result) => {
+    res.status(400).send({
+      success: false,
+      message: result.message
+    })
+  },
+
   statusLoginFail: (res) => {
     res.status(400).send({
       success: false,

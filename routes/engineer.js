@@ -15,7 +15,7 @@ const {
 const uploadImage = require('../src/middleware/multer')
 
 router.get('/', authorization, getAllEngineer)
-router.get('/detail/:enId', authorization, getEngineerById)
+router.get('/detail/:acId', authorization, getEngineerById)
 router.get('/filter', authorization, getFilterEngineer)
 router.put('/:enId', authorization, uploadImage, updateEngineer)
 
