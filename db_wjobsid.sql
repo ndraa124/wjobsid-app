@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 09, 2021 at 08:08 AM
+-- Generation Time: Jan 09, 2021 at 08:53 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -80,9 +80,9 @@ CREATE TABLE `company` (
 --
 
 INSERT INTO `company` (`cn_id`, `ac_id`, `cn_company`, `cn_position`, `cn_field`, `cn_city`, `cn_description`, `cn_instagram`, `cn_linkedin`, `cn_profile`, `cn_created_at`, `cn_updated_at`) VALUES
-(1, 2, 'PT. Technology Associate', 'Directur Teknologi Informasi', 'Software & Hardware', 'Manado, Sulawesi Utara', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum erat orci mollis nec gravida sed, ornare quis urna. Curabitur eu lacus fringilla, vestibulum risus at.', '@teckassociate', '@teckassociate', 'IMG-1605623357563.png', '2020-11-11 12:39:19', '2021-01-08 09:22:40'),
+(1, 2, 'PT. Technology Associate', 'Directur Teknologi Informasi', 'Software & Hardware', 'Manado, Sulawesi Utara', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum erat orci mollis nec gravida sed, ornare quis urna. Curabitur eu lacus fringilla, vestibulum risus at.', '@teckassociate', '@teckassociate', NULL, '2020-11-11 12:39:19', '2021-01-09 07:52:38'),
 (2, 4, 'PT. Valentine Tech', 'Direktur Komputer Science', NULL, NULL, NULL, NULL, NULL, NULL, '2020-11-12 05:57:05', '2020-11-12 05:57:05'),
-(6, 16, 'Samsan Tech', 'CTO', 'Software', NULL, NULL, NULL, NULL, 'IMG-1610103567075.jpg', '2020-12-30 13:11:59', '2021-01-08 10:59:27'),
+(6, 16, 'Samsan Tech', 'CTO', 'Software', NULL, NULL, NULL, NULL, NULL, '2020-12-30 13:11:59', '2021-01-09 07:52:40'),
 (8, 18, 'KNTech', 'CTO', 'Software', 'Jakarta', '-', '@kntech', '@kntech', NULL, '2021-01-05 05:36:08', '2021-01-05 06:17:35');
 
 -- --------------------------------------------------------
@@ -108,10 +108,10 @@ CREATE TABLE `engineer` (
 --
 
 INSERT INTO `engineer` (`en_id`, `ac_id`, `en_job_title`, `en_job_type`, `en_domicile`, `en_description`, `en_profile`, `en_created_at`, `en_updated_at`) VALUES
-(1, 1, 'Android Developer', 'freelance', 'Jakarta', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum erat orci mollis nec gravida sed, ornare quis urna. Curabitur eu lacus fringilla, vestibulum risus at.', 'IMG-1610101466864.jpg', '2020-11-11 12:38:46', '2021-01-08 10:24:26'),
+(1, 1, 'Android Developer', 'freelance', 'Jakarta', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum erat orci mollis nec gravida sed, ornare quis urna. Curabitur eu lacus fringilla, vestibulum risus at.', NULL, '2020-11-11 12:38:46', '2021-01-09 07:52:46'),
 (4, 6, 'Web Developer', 'freelance', 'Ambon', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum erat orci mollis nec gravida sed, ornare quis urna. Curabitur eu lacus fringilla, vestibulum risus at.', NULL, '2020-11-16 11:03:02', '2021-01-05 08:11:48'),
 (6, 8, 'Android Developer', 'freelance', 'Manado', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum erat orci mollis nec gravida sed, ornare quis urna. Curabitur eu lacus fringilla, vestibulum risus at.', NULL, '2020-11-23 02:36:20', '2021-01-05 08:11:49'),
-(7, 9, 'Android Developer', 'freelance', 'Bandung', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum erat orci mollis nec gravida sed, ornare quis urna. Curabitur eu lacus fringilla, vestibulum risus at.', 'IMG-1606113498604.jpg', '2020-11-23 06:17:22', '2021-01-05 08:14:32'),
+(7, 9, 'Android Developer', 'freelance', 'Bandung', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum erat orci mollis nec gravida sed, ornare quis urna. Curabitur eu lacus fringilla, vestibulum risus at.', NULL, '2020-11-23 06:17:22', '2021-01-09 07:52:49'),
 (9, 19, 'Web Developer', 'freelance', 'Jogjakarta', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum erat orci mollis nec gravida sed, ornare quis urna. Curabitur eu lacus fringilla, vestibulum risus at.', NULL, '2021-01-05 08:12:38', '2021-01-05 08:14:48'),
 (10, 20, 'Ios Developer', 'full time', 'Bali', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum erat orci mollis nec gravida sed, ornare quis urna. Curabitur eu lacus fringilla, vestibulum risus at.', NULL, '2021-01-05 08:13:31', '2021-01-05 08:14:52');
 
@@ -189,7 +189,7 @@ CREATE TABLE `portfolio` (
 --
 
 INSERT INTO `portfolio` (`pr_id`, `en_id`, `pr_app`, `pr_description`, `pr_link_pub`, `pr_link_repo`, `pr_work_place`, `pr_type`, `pr_image`) VALUES
-(5, 1, 'SIPEDULI v1', 'Aplikasi pelaporan', '-', '-', 'Dinas Lingkungan Hidup', 'aplikasi mobile', 'IMG-1605622381179.png');
+(5, 1, 'SIPEDULI v1', 'Aplikasi pelaporan', '-', '-', 'Dinas Lingkungan Hidup', 'aplikasi mobile', NULL);
 
 -- --------------------------------------------------------
 
@@ -214,9 +214,9 @@ CREATE TABLE `project` (
 
 INSERT INTO `project` (`pj_id`, `cn_id`, `pj_project_name`, `pj_description`, `pj_deadline`, `pj_image`, `pj_created_at`, `pj_updated_at`) VALUES
 (3, 2, 'Aplikasi Android Kenaikan Gaji Berkala', 'Membuat aplikasi android untuk pengajuan kenaikan gaji berkala', '2021-06-01', NULL, '2020-11-12 10:51:51', '2021-01-06 09:01:26'),
-(36, 8, 'Membuat Aplikasi Mobile', 'Aplikasi Mobile', '2021-01-31', 'IMG-1609827303859.jpg', '2021-01-05 06:15:03', '2021-01-05 06:15:03'),
-(49, 1, 'Aplikasi Pencari Jodoh', 'Aplikasi Yang bertujuan untuk membantu para jomblo ngenes Yang Ada did Indonesia', '2021-03-31', 'IMG-1610023826027.jpg', '2021-01-07 12:50:26', '2021-01-07 12:50:26'),
-(50, 1, 'Sistem Ujian Online Berbasis Web & Android', 'Aplikasi ujian yang dapat membantu para siswa dalam pembelajaran lebih khusus dalam ujian baik ujian sekolah ataupun try out ujian nasional', '2021-06-27', 'IMG-1610027382806.jpg', '2021-01-07 13:49:42', '2021-01-09 04:56:54');
+(36, 8, 'Membuat Aplikasi Mobile', 'Aplikasi Mobile', '2021-01-31', NULL, '2021-01-05 06:15:03', '2021-01-09 07:53:01'),
+(49, 1, 'Aplikasi Pencari Jodoh', 'Aplikasi Yang bertujuan untuk membantu para jomblo ngenes Yang Ada did Indonesia', '2021-03-31', NULL, '2021-01-07 12:50:26', '2021-01-09 07:53:03'),
+(50, 1, 'Sistem Ujian Online Berbasis Web & Android', 'Aplikasi ujian yang dapat membantu para siswa dalam pembelajaran lebih khusus dalam ujian baik ujian sekolah ataupun try out ujian nasional', '2021-06-27', NULL, '2021-01-07 13:49:42', '2021-01-09 07:53:05');
 
 -- --------------------------------------------------------
 
