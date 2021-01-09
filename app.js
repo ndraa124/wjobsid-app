@@ -44,6 +44,7 @@ app.use(bodyParser.urlencoded({
 
 // routes images
 app.use('/images', express.static('./uploads/'))
+app.use('/image', express.static('./public/images'))
 
 // routes access
 app.use('/', indexRouter)
