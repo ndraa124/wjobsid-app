@@ -10,7 +10,7 @@ const storage = multer.diskStorage({
   },
   filename: (_req, file, cb) => {
     const ext = file.originalname.split('.').pop()
-    const fileName = 'IMG-' + Date.now() + '.' + ext
+    const fileName = 'img_' + Date.now() + '.' + ext
 
     cb(null, fileName)
   }
