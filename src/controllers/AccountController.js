@@ -74,6 +74,27 @@ module.exports = {
     }
   },
 
+  updateAccountPass: async (req, res, _next) => {
+    try {
+      const { acId } = req.params
+      const findData = await getAccountById(acId)
+
+      if (findData.length) {
+        const result = await updateAccount(acId, req.body)
+
+        if (result.affectedRows) {
+          statusUpdate(res)
+        } else {
+          statusUpdateFail(res)
+        }
+      } else {
+        statusNotFound(res)
+      }
+    } catch (err) {
+      statusServerError(res)
+    }
+  },
+
   loginAccount: async (req, res, _next) => {
     try {
       const { email, password } = req.body
@@ -133,6 +154,21 @@ module.exports = {
         } else {
           statusNotFoundAccount(res)
         }
+      } else {
+        statusNotFoundAccount(res)
+      }
+    } catch (err) {
+      statusServerError(res)
+    }
+  },
+
+  checkEmail: async (req, res, _next) => {
+    try {
+      const { email } = req.body
+      const result = await getAccountByEmail(email)
+
+      if (result.length) {
+        statusGet(res, result)
       } else {
         statusNotFoundAccount(res)
       }

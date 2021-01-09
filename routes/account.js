@@ -5,7 +5,9 @@ const {
   detailAccount,
   createAccount,
   updateAccount,
-  loginAccount
+  updateAccountPass,
+  loginAccount,
+  checkEmail
 } = require('../src/controllers/AccountController')
 
 const {
@@ -14,7 +16,9 @@ const {
 
 router.post('/', hashPassword, createAccount)
 router.put('/:acId', updateAccount)
+router.put('/password/:acId', hashPassword, updateAccountPass)
 router.post('/login', loginAccount)
+router.post('/check', checkEmail)
 router.get('/detail/:acId', detailAccount)
 
 module.exports = router
