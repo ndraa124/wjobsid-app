@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2020 at 10:12 AM
+-- Generation Time: Jan 09, 2021 at 08:08 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -43,12 +43,16 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`ac_id`, `ac_name`, `ac_email`, `ac_phone`, `ac_password`, `ac_level`, `ac_created_at`, `ac_updated_at`) VALUES
-(1, 'Indra David Pesik', 'ndraa.scout124@gmail.com', '089609960946', '$2b$10$ST.Q1vyP.uCoK269lxP/X..SQ66punTFNMzVl4hosLJw1Zq2s9kdK', 0, '2020-11-11 12:38:46', '2020-11-15 11:18:41'),
-(2, 'Julian Porajou', 'julianporajou443@gmail.com', '089609960946', '123456', 1, '2020-11-11 12:39:19', '2020-11-11 12:39:19'),
-(3, 'Julian Porajou', 'julianporajou443@gmail.com', '089609960946', '123456', 0, '2020-11-11 13:38:07', '2020-11-11 13:38:07'),
+(1, 'Indra David Pesik', 'indradavidpesik@gmail.com', '089609960946', '$2b$10$sSP2b3youwxvZr9Z1ZrmI.ubo5Zl1RwZZzzNcdBVNk6dYv8ofV0ly', 0, '2020-11-11 12:38:46', '2021-01-09 04:10:58'),
+(2, 'Julian Porajou', 'julianporajou443@gmail.com', '082292192488', '$2b$10$eqJa/BDSkmB4XQwmTF0lrOteTMxGq3aqEkUtC6iUPAvbkHigB4RVS', 1, '2020-11-11 12:39:19', '2021-01-08 09:08:12'),
 (4, 'Suryani Datau', 'surs95@gmail.com', '082292192488', '123456', 1, '2020-11-12 05:57:05', '2020-11-12 05:57:05'),
-(6, 'William Smith', 'wilsmith@gmail.com', '085288889999', '$2b$10$dpflByCuvTL7RiV2ZsE8oOT/Gw2V6KqvsLJDbu6dQytiEtynjivne', 0, '2020-11-16 11:03:02', '2020-11-16 11:03:02'),
-(7, 'William Smith', 'wilsmiths@gmail.com', '085288889999', '$2b$10$/uqEDzTfOWS7E8YJHGNIa.jE7sshIYBq7W3wmlOJunSw30ezKUG.a', 0, '2020-11-17 04:05:12', '2020-11-17 04:05:12');
+(6, 'William Smith', 'wilsmith@gmail.com', '085288889999', '$2b$10$dpflByCuvTL7RiV2ZsE8oOT/Gw2V6KqvsLJDbu6dQytiEtynjivne', 0, '2020-11-16 11:03:02', '2020-11-23 03:37:55'),
+(8, 'Dora The Explorer', 'dora@gmail.com', '085288889999', '$2b$10$q1hwWEe5qnlNCYezB1t7NOp5qUJzAaxaUSI/OjlHaxQN3Ol3xSdZy', 0, '2020-11-23 02:36:20', '2020-11-23 02:36:20'),
+(9, 'Spongebob Squarepants', 'sponge@gmail.com', '085288889999', '$2b$10$u.otKSdtcQ2Noail2DmcgeoqFv63HJtH1RyhERA9nrutDoK1YDgM2', 0, '2020-11-23 06:17:22', '2021-01-08 14:14:50'),
+(16, 'Dosan', 'samsan@gmail.com', '1234567890', '$2b$10$FYmTPlzx/w4NCVSegtpZkOLtXljjzp6Rc4w5N8Vi4YE9Zb/Yr/bS2', 1, '2020-12-30 13:11:59', '2020-12-30 13:11:59'),
+(18, 'Kevin', 'kntech@gmail.com', '082219258612', '$2b$10$aMs9jdSQmGJ14LwDMYOg5OW6fOUyCizZfy.DOxhBCIZEay95grIRO', 1, '2021-01-05 05:36:08', '2021-01-05 05:36:08'),
+(19, 'James Will', 'james@gmail.com', '123456789012', '$2b$10$ivyDiI3gXT0gT5u5BW.wNevBW9F.fvzh7dAQCAsQ.SqNykEjBX5Ee', 0, '2021-01-05 08:12:38', '2021-01-05 08:12:38'),
+(20, 'Beatrix Anko', 'beatrix@gmail.com', '1234567890', '$2b$10$nHVaVmFYB5wQfZhv9Qnlke44XV3Lc7fBCce7wPt1CAN7cKyhC23uq', 0, '2021-01-05 08:13:31', '2021-01-05 08:13:31');
 
 -- --------------------------------------------------------
 
@@ -76,8 +80,10 @@ CREATE TABLE `company` (
 --
 
 INSERT INTO `company` (`cn_id`, `ac_id`, `cn_company`, `cn_position`, `cn_field`, `cn_city`, `cn_description`, `cn_instagram`, `cn_linkedin`, `cn_profile`, `cn_created_at`, `cn_updated_at`) VALUES
-(1, 2, 'PT. Kawanua Tech', 'Directur Teknologi Informasi', '-', '-', '-', '-', '-', 'IMG-1605623357563.png', '2020-11-11 12:39:19', '2020-11-17 14:29:17'),
-(2, 4, 'PT. Valentine Tech', 'Direktur Komputer Science', NULL, NULL, NULL, NULL, NULL, NULL, '2020-11-12 05:57:05', '2020-11-12 05:57:05');
+(1, 2, 'PT. Technology Associate', 'Directur Teknologi Informasi', 'Software & Hardware', 'Manado, Sulawesi Utara', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum erat orci mollis nec gravida sed, ornare quis urna. Curabitur eu lacus fringilla, vestibulum risus at.', '@teckassociate', '@teckassociate', 'IMG-1605623357563.png', '2020-11-11 12:39:19', '2021-01-08 09:22:40'),
+(2, 4, 'PT. Valentine Tech', 'Direktur Komputer Science', NULL, NULL, NULL, NULL, NULL, NULL, '2020-11-12 05:57:05', '2020-11-12 05:57:05'),
+(6, 16, 'Samsan Tech', 'CTO', 'Software', NULL, NULL, NULL, NULL, 'IMG-1610103567075.jpg', '2020-12-30 13:11:59', '2021-01-08 10:59:27'),
+(8, 18, 'KNTech', 'CTO', 'Software', 'Jakarta', '-', '@kntech', '@kntech', NULL, '2021-01-05 05:36:08', '2021-01-05 06:17:35');
 
 -- --------------------------------------------------------
 
@@ -102,10 +108,12 @@ CREATE TABLE `engineer` (
 --
 
 INSERT INTO `engineer` (`en_id`, `ac_id`, `en_job_title`, `en_job_type`, `en_domicile`, `en_description`, `en_profile`, `en_created_at`, `en_updated_at`) VALUES
-(1, 1, 'Android Developer', 'full time', 'Jakarta', '-', 'IMG-1605623234806.png', '2020-11-11 12:38:46', '2020-11-17 14:27:14'),
-(2, 3, 'Web Developer', 'full time', 'Bandung', NULL, NULL, '2020-11-11 13:38:07', '2020-11-16 10:43:18'),
-(4, 6, NULL, 'freelance', 'Ambon', NULL, NULL, '2020-11-16 11:03:02', '2020-11-19 12:15:00'),
-(5, 7, NULL, 'freelance', NULL, NULL, NULL, '2020-11-17 04:05:12', '2020-11-19 12:15:07');
+(1, 1, 'Android Developer', 'freelance', 'Jakarta', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum erat orci mollis nec gravida sed, ornare quis urna. Curabitur eu lacus fringilla, vestibulum risus at.', 'IMG-1610101466864.jpg', '2020-11-11 12:38:46', '2021-01-08 10:24:26'),
+(4, 6, 'Web Developer', 'freelance', 'Ambon', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum erat orci mollis nec gravida sed, ornare quis urna. Curabitur eu lacus fringilla, vestibulum risus at.', NULL, '2020-11-16 11:03:02', '2021-01-05 08:11:48'),
+(6, 8, 'Android Developer', 'freelance', 'Manado', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum erat orci mollis nec gravida sed, ornare quis urna. Curabitur eu lacus fringilla, vestibulum risus at.', NULL, '2020-11-23 02:36:20', '2021-01-05 08:11:49'),
+(7, 9, 'Android Developer', 'freelance', 'Bandung', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum erat orci mollis nec gravida sed, ornare quis urna. Curabitur eu lacus fringilla, vestibulum risus at.', 'IMG-1606113498604.jpg', '2020-11-23 06:17:22', '2021-01-05 08:14:32'),
+(9, 19, 'Web Developer', 'freelance', 'Jogjakarta', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum erat orci mollis nec gravida sed, ornare quis urna. Curabitur eu lacus fringilla, vestibulum risus at.', NULL, '2021-01-05 08:12:38', '2021-01-05 08:14:48'),
+(10, 20, 'Ios Developer', 'full time', 'Bali', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum erat orci mollis nec gravida sed, ornare quis urna. Curabitur eu lacus fringilla, vestibulum risus at.', NULL, '2021-01-05 08:13:31', '2021-01-05 08:14:52');
 
 -- --------------------------------------------------------
 
@@ -129,7 +137,7 @@ CREATE TABLE `experience` (
 
 INSERT INTO `experience` (`ex_id`, `en_id`, `ex_position`, `ex_company`, `ex_start`, `ex_end`, `ex_description`) VALUES
 (1, 1, 'Staff IT', 'Bank BNI', '2020-10-01', '2020-11-01', 'Membuat aplikasi bank'),
-(2, 1, 'Staff IT', 'Bank BNI', '2020-10-01', '2020-11-01', 'Membuat aplikasi bank');
+(2, 1, 'Web Developer', 'PT. Barika Abadi', '2020-10-01', '2020-11-01', 'Membuat web penjualan');
 
 -- --------------------------------------------------------
 
@@ -153,9 +161,10 @@ CREATE TABLE `hire` (
 --
 
 INSERT INTO `hire` (`hr_id`, `en_id`, `pj_id`, `hr_price`, `hr_message`, `hr_status`, `hr_date_confirm`, `hr_created_at`) VALUES
-(1, 1, 2, 10000000, 'Kami tunggu persetujuannya', 'approve', '2020-11-16 10:37:59', '2020-11-12 11:26:44'),
-(2, 2, 2, 10000000, 'Kami tunggu persetujuannya', 'wait', NULL, '2020-11-12 12:19:04'),
-(3, 2, 1, 15000000, 'Kami tunggu persetujuannya', 'reject', '2020-11-16 13:03:58', '2020-11-16 04:30:00');
+(20, 1, 50, 15000000, 'Join with us', 'reject', '2021-01-08 15:23:22', '2021-01-08 06:08:25'),
+(22, 4, 49, 15000000, 'Join with us', 'approve', '2021-01-08 15:51:35', '2021-01-08 07:50:06'),
+(23, 7, 50, 20000000, 'Join with us', 'wait', NULL, '2021-01-08 07:50:31'),
+(24, 6, 49, 10000000, 'Join with us', 'wait', NULL, '2021-01-08 08:18:55');
 
 -- --------------------------------------------------------
 
@@ -172,7 +181,7 @@ CREATE TABLE `portfolio` (
   `pr_link_repo` varchar(100) NOT NULL,
   `pr_work_place` varchar(100) NOT NULL,
   `pr_type` enum('aplikasi mobile','aplikasi web') NOT NULL,
-  `pr_image` text NOT NULL
+  `pr_image` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -180,8 +189,7 @@ CREATE TABLE `portfolio` (
 --
 
 INSERT INTO `portfolio` (`pr_id`, `en_id`, `pr_app`, `pr_description`, `pr_link_pub`, `pr_link_repo`, `pr_work_place`, `pr_type`, `pr_image`) VALUES
-(2, 2, 'PATRA ONLINE', 'Aplikasi belanja online barang pasar', '-', '-', 'Dinas Lingkungan Hidup', 'aplikasi mobile', '-'),
-(5, 1, 'SIPEDULI', 'Aplikasi pelaporan lingkungan', '-', '-', 'Dinas Lingkungan Hidup', 'aplikasi mobile', 'IMG-1605622381179.png');
+(5, 1, 'SIPEDULI v1', 'Aplikasi pelaporan', '-', '-', 'Dinas Lingkungan Hidup', 'aplikasi mobile', 'IMG-1605622381179.png');
 
 -- --------------------------------------------------------
 
@@ -195,7 +203,7 @@ CREATE TABLE `project` (
   `pj_project_name` varchar(100) NOT NULL,
   `pj_description` text NOT NULL,
   `pj_deadline` date NOT NULL,
-  `pj_image` text NOT NULL,
+  `pj_image` text DEFAULT NULL,
   `pj_created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `pj_updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -205,11 +213,10 @@ CREATE TABLE `project` (
 --
 
 INSERT INTO `project` (`pj_id`, `cn_id`, `pj_project_name`, `pj_description`, `pj_deadline`, `pj_image`, `pj_created_at`, `pj_updated_at`) VALUES
-(1, 1, 'Aplikasi Web Perusahaan', 'Membuat website perusahaan', '2020-12-01', 'IMG-1605617386609.png', '2020-11-12 10:49:30', '2020-11-17 12:49:46'),
-(2, 1, 'Aplikasi Mobile Perusahaan', 'Membuat aplikasi mobile untuk dipakai dalam perusahaan', '2021-03-15', '-', '2020-11-12 10:50:38', '2020-11-12 10:50:38'),
-(3, 2, 'Aplikasi Android Kenaikan Gaji Berkala', 'Membuat aplikasi android untuk pengajuan kenaikan gaji berkala', '2021-06-01', '-', '2020-11-12 10:51:51', '2020-11-12 10:51:51'),
-(8, 1, 'Aplikasi Web', 'Membuat Aplikasi Pendeteksi Pembawa Harapan Palsu', '2021-06-01', 'pj_image-1605596545606.jpg', '2020-11-17 07:02:25', '2020-11-17 07:02:25'),
-(11, 1, 'Aplikasi Android E-Gaji Berkala', 'Membuat Aplikasi Android Untuk Pengelolaan Gaji Berkala', '2021-03-01', 'IMG-1605617120374.png', '2020-11-17 12:45:20', '2020-11-17 12:45:20');
+(3, 2, 'Aplikasi Android Kenaikan Gaji Berkala', 'Membuat aplikasi android untuk pengajuan kenaikan gaji berkala', '2021-06-01', NULL, '2020-11-12 10:51:51', '2021-01-06 09:01:26'),
+(36, 8, 'Membuat Aplikasi Mobile', 'Aplikasi Mobile', '2021-01-31', 'IMG-1609827303859.jpg', '2021-01-05 06:15:03', '2021-01-05 06:15:03'),
+(49, 1, 'Aplikasi Pencari Jodoh', 'Aplikasi Yang bertujuan untuk membantu para jomblo ngenes Yang Ada did Indonesia', '2021-03-31', 'IMG-1610023826027.jpg', '2021-01-07 12:50:26', '2021-01-07 12:50:26'),
+(50, 1, 'Sistem Ujian Online Berbasis Web & Android', 'Aplikasi ujian yang dapat membantu para siswa dalam pembelajaran lebih khusus dalam ujian baik ujian sekolah ataupun try out ujian nasional', '2021-06-27', 'IMG-1610027382806.jpg', '2021-01-07 13:49:42', '2021-01-09 04:56:54');
 
 -- --------------------------------------------------------
 
@@ -231,17 +238,13 @@ INSERT INTO `skill` (`sk_id`, `en_id`, `sk_skill_name`) VALUES
 (1, 1, 'Java'),
 (2, 1, 'PHP'),
 (3, 1, 'Javascript'),
-(4, 1, 'Dart'),
-(5, 2, 'C++'),
-(6, 2, 'C'),
-(7, 2, 'C#'),
-(8, 2, 'C#'),
-(9, 2, 'C'),
-(10, 2, 'PHP'),
-(11, 4, 'Dart'),
-(12, 4, 'Java'),
-(13, 4, 'C#'),
-(14, 4, 'Kotlin');
+(19, 1, 'Flutter'),
+(26, 6, 'Kotlin'),
+(27, 7, 'Java'),
+(28, 10, 'Dart'),
+(29, 4, 'CodeIgniter'),
+(30, 9, 'Java'),
+(31, 9, 'PHP');
 
 --
 -- Indexes for dumped tables
@@ -311,49 +314,49 @@ ALTER TABLE `skill`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `ac_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ac_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `cn_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `cn_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `engineer`
 --
 ALTER TABLE `engineer`
-  MODIFY `en_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `en_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `experience`
 --
 ALTER TABLE `experience`
-  MODIFY `ex_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ex_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `hire`
 --
 ALTER TABLE `hire`
-  MODIFY `hr_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `hr_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `portfolio`
 --
 ALTER TABLE `portfolio`
-  MODIFY `pr_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `pr_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `pj_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `pj_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `skill`
 --
 ALTER TABLE `skill`
-  MODIFY `sk_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `sk_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- Constraints for dumped tables
