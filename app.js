@@ -43,7 +43,7 @@ app.use(bodyParser.urlencoded({
 }))
 
 // routes images
-app.use('/images', express.static('./uploads/'))
+app.use('*/images', express.static('./uploads/'))
 
 // routes access
 app.use('/', indexRouter)
