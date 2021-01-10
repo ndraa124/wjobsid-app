@@ -212,7 +212,7 @@ module.exports = {
               ON sk.en_id = en.en_id
                  ${where}
              AND en.en_job_title != ''
-        GROUP BY ac.ac_id
+        GROUP BY en.en_id
         ORDER BY ${fill}
            LIMIT ${paginate.limit} 
           OFFSET ${paginate.offset}
