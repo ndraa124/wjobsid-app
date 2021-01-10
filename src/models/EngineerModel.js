@@ -200,8 +200,7 @@ module.exports = {
                  en.en_job_title,
                  en.en_job_type,
                  en.en_domicile,
-                 en.en_profile,
-                 sk.sk_skill_name
+                 en.en_profile
             FROM engineer en
             JOIN account ac
               ON ac.ac_id = en.ac_id
@@ -209,7 +208,6 @@ module.exports = {
               ON sk.en_id = en.en_id
                  ${where}
              AND en.en_job_title != ''
-        GROUP BY en.en_id
         ORDER BY ${fill}
            LIMIT ${paginate.limit} 
           OFFSET ${paginate.offset}
