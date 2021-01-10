@@ -183,9 +183,12 @@ module.exports = {
         fill = 'ac.ac_name'
         where = ''
       } else if (filter === 1) {
-        fill = 'en.en_domicile'
+        fill = 'sk.sk_skill_name'
         where = ''
       } else if (filter === 2) {
+        fill = 'en.en_domicile'
+        where = ''
+      } else if (filter === 3) {
         fill = 'en.en_job_type'
         where = "WHERE en.en_job_type = 'freelance'"
       } else {
@@ -200,7 +203,8 @@ module.exports = {
                  en.en_job_title,
                  en.en_job_type,
                  en.en_domicile,
-                 en.en_profile
+                 en.en_profile,
+                 sk.sk_skill_name
             FROM engineer en
             JOIN account ac
               ON ac.ac_id = en.ac_id
@@ -208,6 +212,7 @@ module.exports = {
               ON sk.en_id = en.en_id
                  ${where}
              AND en.en_job_title != ''
+        GROUP BY ac.ac_id
         ORDER BY ${fill}
            LIMIT ${paginate.limit} 
           OFFSET ${paginate.offset}
