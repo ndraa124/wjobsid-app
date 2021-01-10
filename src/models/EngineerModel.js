@@ -183,12 +183,9 @@ module.exports = {
         fill = 'ac.ac_name'
         where = ''
       } else if (filter === 1) {
-        fill = 'sk.sk_skill_name'
-        where = ''
-      } else if (filter === 2) {
         fill = 'en.en_domicile'
         where = ''
-      } else if (filter === 3) {
+      } else if (filter === 2) {
         fill = 'en.en_job_type'
         where = "WHERE en.en_job_type = 'freelance'"
       } else {
