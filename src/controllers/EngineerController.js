@@ -2,6 +2,7 @@ const {
   getAllEngineer,
   getSearchEngineer,
   getEngineerById,
+  getEngineerByIdAc,
   updateEngineer,
   getFilterEngineer
 } = require('../models/EngineerModel')
@@ -120,7 +121,7 @@ module.exports = {
     const { enId } = req.params
 
     try {
-      const findData = await getEngineerById(enId)
+      const findData = await getEngineerByIdAc(enId)
 
       if (findData.length) {
         req.body.image = req.file === undefined ? findData[0].en_profile : req.file.filename

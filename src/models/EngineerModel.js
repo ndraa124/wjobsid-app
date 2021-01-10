@@ -117,7 +117,35 @@ module.exports = {
     })
   },
 
-  getEngineerById: (enId) => {
+  getEngineerById: (acId) => {
+    return new Promise((resolve, reject) => {
+      const query = `
+        SELECT en.en_id,
+               ac.ac_id,
+               ac.ac_name,
+               en.en_job_title,
+               en.en_job_type,
+               en.en_profile,
+               en.en_domicile,
+               en.en_description
+          FROM engineer en
+          JOIN account ac
+            ON ac.ac_id = en.ac_id
+         WHERE ac.?
+      `
+
+      dbConnect.query(query, { ac_id: acId }, (error, results, _fields) => {
+        if (!error) {
+          resolve(results)
+        } else {
+          console.error(error)
+          reject(error)
+        }
+      })
+    })
+  },
+
+  getEngineerByIdAc: (enId) => {
     return new Promise((resolve, reject) => {
       const query = `
         SELECT en.en_id,
