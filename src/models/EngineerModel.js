@@ -208,7 +208,7 @@ module.exports = {
             FROM engineer en
             JOIN account ac
               ON ac.ac_id = en.ac_id
-            JOIN skill sk
+       LEFT JOIN skill sk
               ON sk.en_id = en.en_id
                  ${where}
              AND en.en_job_title != ''
