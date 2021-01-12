@@ -180,16 +180,16 @@ module.exports = {
       let where
 
       if (filter === 0) {
-        fill = 'ac.ac_name'
+        fill = 'ac.ac_name ASC'
         where = ''
       } else if (filter === 1) {
-        fill = 'en.en_domicile'
+        fill = 'en.en_domicile ASC'
         where = ''
       } else if (filter === 2) {
-        fill = 'en.en_job_type'
+        fill = 'en.en_job_type ASC'
         where = "WHERE en.en_job_type = 'freelance'"
       } else {
-        fill = 'en.en_job_type'
+        fill = 'en.en_job_type ASC'
         where = "WHERE en.en_job_type = 'full time'"
       }
 
@@ -206,7 +206,7 @@ module.exports = {
               ON ac.ac_id = en.ac_id
                  ${where}
              AND en.en_job_title != ''
-        GROUP BY en.en_id DESC
+        GROUP BY en.en_id
         ORDER BY ${fill}
            LIMIT ${paginate.limit} 
           OFFSET ${paginate.offset}
