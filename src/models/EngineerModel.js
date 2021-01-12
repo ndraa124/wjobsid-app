@@ -85,7 +85,13 @@ module.exports = {
             ON (ac.ac_id = en.ac_id)
          WHERE ac.ac_name
           LIKE '%${paginate.search}%'
-      ORDER BY ac.ac_id DESC
+            OR en.en_job_title
+          LIKE '%${paginate.search}%'
+            OR en.en_job_type
+          LIKE '%${paginate.search}%'
+            OR en.en_domicile
+          LIKE '%${paginate.search}%'
+      ORDER BY ac.ac_id ASC
          LIMIT ${paginate.limit} 
         OFFSET ${paginate.offset}
       `
@@ -208,6 +214,8 @@ module.exports = {
               ON ac.ac_id = en.ac_id
                  ${where}
              AND en.en_job_title != ''
+             AND en.en_job_type != ''
+             AND en.en_domicile != ''
         GROUP BY en.en_id
         ORDER BY ${fill}
            LIMIT ${paginate.limit} 
