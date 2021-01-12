@@ -51,6 +51,7 @@ module.exports = {
           JOIN account ac
             ON (ac.ac_id = en.ac_id)
          WHERE hr.?
+      ORDER BY hr.hr_id DESC
       `
 
       dbConnect.query(query, { en_id: enId }, (error, results, _fields) => {
@@ -71,6 +72,7 @@ module.exports = {
           JOIN project pj
             ON (pj.pj_id = hr.pj_id)
          WHERE pj.pj_id = ?
+      ORDER BY hr.hr_id DESC
       `
 
       dbConnect.query(query, pjId, (error, results, _fields) => {
@@ -116,6 +118,7 @@ module.exports = {
             ON (ac.ac_id = en.ac_id)
          WHERE cn.?
            AND hr.hr_status = '${status}'
+      ORDER BY hr.hr_id DESC
       `
 
       dbConnect.query(query, { cn_id: cnId }, (error, results, _fields) => {

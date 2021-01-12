@@ -24,6 +24,7 @@ module.exports = {
         SELECT *
           FROM portfolio
          WHERE ?
+      ORDER BY pr_id DESC
       `
 
       dbConnect.query(query, { en_id: enId }, (error, results, _fields) => {

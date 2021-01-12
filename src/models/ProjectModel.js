@@ -24,6 +24,7 @@ module.exports = {
         SELECT *
           FROM project
          WHERE ?
+      ORDER BY pj_id DESC
       `
 
       dbConnect.query(query, { cn_id: cnId }, (error, results, _fields) => {

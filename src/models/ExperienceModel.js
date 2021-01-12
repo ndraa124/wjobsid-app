@@ -24,6 +24,7 @@ module.exports = {
         SELECT *
           FROM experience
          WHERE ?
+      ORDER BY ex_id DESC
       `
 
       dbConnect.query(query, { en_id: enId }, (error, results, _fields) => {
