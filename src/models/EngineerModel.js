@@ -34,7 +34,7 @@ module.exports = {
           JOIN account ac
             ON ac.ac_id = en.ac_id
          WHERE en.en_job_title != ''
-      ORDER BY ac.ac_id
+      ORDER BY ac.ac_id DESC
          LIMIT ${paginate.limit}
         OFFSET ${paginate.offset}
       `
@@ -83,7 +83,7 @@ module.exports = {
             ON (ac.ac_id = en.ac_id)
          WHERE ac.ac_name
           LIKE '%${paginate.search}%'
-      ORDER BY ac.ac_id
+      ORDER BY ac.ac_id DESC
          LIMIT ${paginate.limit} 
         OFFSET ${paginate.offset}
       `
@@ -206,7 +206,7 @@ module.exports = {
               ON ac.ac_id = en.ac_id
                  ${where}
              AND en.en_job_title != ''
-        GROUP BY en.en_id
+        GROUP BY en.en_id DESC
         ORDER BY ${fill}
            LIMIT ${paginate.limit} 
           OFFSET ${paginate.offset}

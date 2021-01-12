@@ -85,14 +85,6 @@ module.exports = {
 
   getAllHireByCompany: (cnId, status) => {
     return new Promise((resolve, reject) => {
-      let stat
-
-      if (status !== null) {
-        stat = `AND hr.hr_status = '${status}'`
-      } else {
-        stat = ''
-      }
-
       const query = `
         SELECT hr.hr_id,
                en.en_id,
@@ -123,7 +115,7 @@ module.exports = {
           JOIN account ac
             ON (ac.ac_id = en.ac_id)
          WHERE cn.?
-               ${stat}
+           AND hr.hr_status = '${status}'
       `
 
       dbConnect.query(query, { cn_id: cnId }, (error, results, _fields) => {
