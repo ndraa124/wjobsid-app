@@ -11,7 +11,7 @@ module.exports = {
     res.status(200).send({
       success: true,
       message: 'Success to get data',
-      totalPage: length,
+      totalPages: length,
       data: result
     })
   },
