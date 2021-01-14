@@ -52,7 +52,7 @@ module.exports = {
 
       if (result.length) {
         const totalData = await getAllData()
-        const totalPage = totalData.length / limit
+        const totalPage = Math.ceil(totalData.length / limit)
 
         statusGetPaginate(res, result, totalPage)
       } else {
