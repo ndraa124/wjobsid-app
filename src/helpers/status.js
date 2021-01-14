@@ -7,11 +7,11 @@ module.exports = {
     })
   },
 
-  statusGetPaginate: (res, result) => {
+  statusGetPaginate: (res, result, length) => {
     res.status(200).send({
       success: true,
       message: 'Success to get data',
-      totalPage: 1,
+      totalPage: length,
       data: result
     })
   },

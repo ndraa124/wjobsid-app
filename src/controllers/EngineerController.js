@@ -50,7 +50,7 @@ module.exports = {
       }
 
       if (result.length) {
-        statusGetPaginate(res, result)
+        statusGetPaginate(res, result, result.length)
       } else {
         statusNotFound(res)
       }
