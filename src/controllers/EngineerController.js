@@ -11,6 +11,7 @@ const isEmpty = require('lodash.isempty')
 
 const {
   statusGet,
+  statusGetPaginate,
   statusUpdate,
   statusUpdateFail,
   statusServerError,
@@ -49,7 +50,7 @@ module.exports = {
       }
 
       if (result.length) {
-        statusGet(res, result)
+        statusGetPaginate(res, result)
       } else {
         statusNotFound(res)
       }
