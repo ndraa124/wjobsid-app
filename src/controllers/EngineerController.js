@@ -51,9 +51,10 @@ module.exports = {
       }
 
       if (result.length) {
-        const totalPage = await getAllData()
+        const totalData = await getAllData()
+        const totalPage = totalData.length / limit
 
-        statusGetPaginate(res, result, totalPage.length)
+        statusGetPaginate(res, result, totalPage)
       } else {
         statusNotFound(res)
       }
