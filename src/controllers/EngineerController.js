@@ -22,7 +22,7 @@ module.exports = {
     let { search, limit, page } = req.query
 
     if (!limit) {
-      limit = 50
+      limit = 5
     } else {
       limit = parseInt(limit)
     }
