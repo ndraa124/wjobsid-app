@@ -20,6 +20,54 @@ module.exports = {
     })
   },
 
+  getAllData: () => {
+    return new Promise((resolve, reject) => {
+      const query = `
+        SELECT en.en_id,
+               ac.ac_id,
+               ac.ac_name,
+               en.en_job_title,
+               en.en_job_type,
+               en.en_domicile,
+               en.en_profile
+          FROM engineer en
+          JOIN account ac
+            ON ac.ac_id = en.ac_id
+         WHERE en.en_job_title != ''
+           AND en.en_job_type != ''
+           AND en.en_domicile != ''
+      ORDER BY ac.ac_id DESC
+      `
+
+      dbConnect.query(query, async (error, results, _fields) => {
+        if (!error) {
+          const data = []
+
+          for (let i = 0; i < results.length; i++) {
+            const item = results[i]
+
+            const skill = await getAllSkillById(item.en_id)
+
+            data[i] = {
+              en_id: item.en_id,
+              ac_id: item.ac_id,
+              ac_name: item.ac_name,
+              en_job_title: item.en_job_title,
+              en_job_type: item.en_job_type,
+              en_domicile: item.en_domicile,
+              en_profile: item.en_profile,
+              en_skill: skill
+            }
+          }
+
+          resolve(data)
+        } else {
+          reject(error)
+        }
+      })
+    })
+  },
+
   getAllEngineer: (paginate) => {
     return new Promise((resolve, reject) => {
       const query = `

@@ -1,4 +1,5 @@
 const {
+  getAllData,
   getAllEngineer,
   getSearchEngineer,
   getEngineerById,
@@ -50,7 +51,9 @@ module.exports = {
       }
 
       if (result.length) {
-        statusGetPaginate(res, result, result.length)
+        const totalPage = await getAllData()
+
+        statusGetPaginate(res, result, totalPage.length)
       } else {
         statusNotFound(res)
       }
