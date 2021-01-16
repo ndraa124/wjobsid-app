@@ -84,7 +84,7 @@ module.exports = {
          WHERE en.en_job_title != ''
            AND en.en_job_type != ''
            AND en.en_domicile != ''
-      ORDER BY RAND()
+      ORDER BY en.en_id DESC
          LIMIT ${paginate.limit}
         OFFSET ${paginate.offset}
       `
