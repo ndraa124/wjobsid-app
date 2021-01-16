@@ -4,6 +4,7 @@ const {
   getAllHireByProject,
   getAllHireByCompany,
   getHireById,
+  checkIsHire,
   updateHireStatus
 } = require('../models/HireModel')
 
@@ -57,6 +58,24 @@ module.exports = {
 
     try {
       const result = await getAllHireByCompany(cnId, status)
+
+      if (result.length) {
+        statusGet(res, result)
+      } else {
+        statusNotFound(res)
+      }
+    } catch (error) {
+      console.error(error)
+      statusServerError(res)
+    }
+  },
+
+  checkIsHire: async (req, res, _next) => {
+    const { cnId } = req.query
+    const { enId } = req.query
+
+    try {
+      const result = await checkIsHire(cnId, enId)
 
       if (result.length) {
         statusGet(res, result)
