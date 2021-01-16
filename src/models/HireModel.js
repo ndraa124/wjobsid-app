@@ -137,6 +137,7 @@ module.exports = {
         SELECT hr.hr_id,
                en.en_id,
                pj.pj_id,
+               cn.cn_id,
                hr.hr_price,
                hr.hr_message,
                hr.hr_status,
