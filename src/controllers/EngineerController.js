@@ -1,3 +1,6 @@
+const redis = require('redis')
+const client = redis.createClient()
+
 const {
   getAllData,
   getAllEngineer,
@@ -43,29 +46,37 @@ module.exports = {
     }
 
     try {
-      let result
+      client.get('getAllEngineer', async (_err, data) => {
+        if (data) {
+          statusGetData(res, JSON.parse(data))
+        } else {
+          let result
 
-      if (isEmpty(search)) {
-        result = await getAllEngineer(paginate)
-      } else {
-        result = await getSearchEngineer(paginate)
-      }
+          if (isEmpty(search)) {
+            result = await getAllEngineer(paginate)
+          } else {
+            result = await getSearchEngineer(paginate)
+          }
 
-      if (result.length) {
-        const totalData = await getAllData()
-        const totalPage = Math.ceil(totalData.length / limit)
+          if (result.length) {
+            const totalData = await getAllData()
+            const totalPage = Math.ceil(totalData.length / limit)
 
-        const resultData = {
-          success: true,
-          message: 'Success to get data',
-          totalPages: totalPage,
-          data: result
+            const resultData = {
+              success: true,
+              message: 'Success to get data',
+              totalPages: totalPage,
+              data: result
+            }
+
+            client.set('getAllEngineer', JSON.stringify(resultData), 'EX', 60 * 15)
+
+            statusGetData(res, resultData)
+          } else {
+            statusNotFound(res)
+          }
         }
-
-        statusGetData(res, resultData)
-      } else {
-        statusNotFound(res)
-      }
+      })
     } catch (error) {
       console.log(error)
       statusServerError(res)
