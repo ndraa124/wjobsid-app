@@ -48,6 +48,7 @@ module.exports = {
     try {
       client.get('getAllEngineer', async (_err, data) => {
         if (data) {
+          console.log(data)
           statusGetData(res, JSON.parse(data))
         } else {
           let result
