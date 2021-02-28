@@ -7,6 +7,10 @@ module.exports = {
     })
   },
 
+  statusGetData: (res, result) => {
+    res.status(200).send(result)
+  },
+
   statusGetPaginate: (res, result, length) => {
     res.status(200).send({
       success: true,

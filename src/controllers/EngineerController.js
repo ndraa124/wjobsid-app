@@ -12,6 +12,7 @@ const isEmpty = require('lodash.isempty')
 
 const {
   statusGet,
+  statusGetData,
   statusGetPaginate,
   statusUpdate,
   statusUpdateFail,
@@ -54,7 +55,14 @@ module.exports = {
         const totalData = await getAllData()
         const totalPage = Math.ceil(totalData.length / limit)
 
-        statusGetPaginate(res, result, totalPage)
+        const resultData = {
+          success: true,
+          message: 'Success to get data',
+          totalPages: totalPage,
+          data: result
+        }
+
+        statusGetData(res, resultData)
       } else {
         statusNotFound(res)
       }
